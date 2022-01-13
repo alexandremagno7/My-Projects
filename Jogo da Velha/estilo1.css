@@ -1,0 +1,199 @@
+:root{
+    --cor1: #fefefe;
+    --cor2: #cecece;
+    --cor3: #A1A0A0;
+
+    --corPrimaria1: #88CC88;
+    --corPrimaria2: #55AA55;
+    --corPrimaria3: #116611;
+
+    --corSecundaria1: #FFF0AA;
+    --corSecundaria2: #AA9739;
+    --corSecundaria3: #806D15;
+    --corSecundaria4: #554600;
+
+    --corIcone1: #AA3939;
+
+    --corIcone2: #403075;
+
+    --corGradientePreta: #0000009c;
+    --corGradienteVerde: #00440080;
+    --shadowDefault: 2px 2px 2px;
+    --mainContainer: 0px 50px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+3:wght@200;300;400;500;600;700&family=Source+Sans+Pro:wght@200;300&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-image: url('./design/mathematics-g0272c0b29_1920\(3x\).jpg');
+    background-position: center 10%;
+    background-repeat: no-repeat;
+    background-size: 150%;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.gradiente-do-corpo{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #2D882D);
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--corSecundaria2);
+    background-color: #00440080;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: var(--shadowDefault) black;
+}
+
+header span {
+    font-size: 3em;
+    margin-left: 10px;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+main .texto-selecao{
+    overflow: hidden;
+    background-color: var(--corGradienteVerde);
+    margin-top: 20px;
+    border-radius: 10px;
+    
+    backdrop-filter: blur(2px); /*Infelizmente não funciona no Firefox*/
+}
+
+main .area-do-jogo{
+    overflow: hidden;
+    width: 60%;
+    background-color: var(--corGradienteVerde);
+    margin-top: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px); /*Infelizmente não funciona no Firefox*/
+}
+
+.desable{
+    display: none;
+}
+
+.grid-enable{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding: 10px;
+}
+
+main .texto-selecao p{
+    font-size: 2.5em;
+    color: var(--corSecundaria2);
+    text-shadow: var(--shadowDefault) black;
+    background-color: #88cc88a8;
+    padding: 20px;
+}
+
+main .texto-selecao .itens-de-escolha{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.opcao{
+    background-color: #88cc88a8;
+    height: 110px;
+    border-radius: 10px;
+    font-size: 6em;
+    padding: 10px 20px;
+
+    cursor: pointer;
+    text-shadow: var(--shadowDefault) black;
+    transition: 1s;
+    margin: 10px;
+    user-select: none;
+}
+
+.opcao:hover{
+    transform: scale(1.13) rotate(2deg);
+    transition: 0.5s;
+    background-color: #89d689b6;
+    
+}
+
+.tipo-x{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--corIcone1);
+}
+
+.tipo-o{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--corIcone2);
+}
+
+.marcado{
+    background-color: #fefefe9f;
+    height: 110px;
+    border-radius: 10px;
+    font-size: 6em;
+    padding: 10px 20px;
+
+    cursor: not-allowed;
+    text-shadow: var(--shadowDefault) black;
+    transition: 1s;
+    margin: 10px;
+
+    user-select: none;
+}
+
+.vitoria{
+    background-color: var(--corSecundaria1);
+    transform: scale(1.13)
+}
+
+.area-de-relatorios{
+    margin-top: 10px;
+
+    color: var(--corSecundaria2);
+    background-color: #00440080;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.negrito{
+    font-weight: 700;
+}
+
+.contorno{
+    transition: 0.5s;
+    -webkit-text-stroke-width: 2px; /* largura da borda */
+    -webkit-text-stroke-color: var(--cor1); /* cor da borda */
+}
+
+.main-footer{
+    position: fixed; /*VER ISSO AQUI*/
+    bottom: 0px;
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+
+    color: var(--corSecundaria2);
+    background-color: #00440080;
+    text-align: center;
+
+    font-size: 0.8em;
+}

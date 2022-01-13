@@ -1,0 +1,44 @@
+@media (max-width: 755px){
+    body {
+        background-image: url('./design/mathematics-g0272c0b29_1920\(3x\).jpg');
+        background-size: 134vh 100vh;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    main .texto-selecao{
+        width: 350px;
+        text-align: center;
+    }
+
+    main .area-do-jogo{
+        width: 80%;
+    }
+}
+
+@media (max-width: 360px){
+    h1 {
+        text-align: center;
+    }
+
+    main .texto-selecao p{
+        font-size: 1em;
+    }
+
+    main .area-do-jogo{
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .opcao{
+        height: 90px;
+        margin: 5px;
+    }
+
+    .marcado{
+        height: 90px;
+        margin: 5px;
+    }
+}

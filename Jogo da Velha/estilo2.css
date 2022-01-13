@@ -1,0 +1,11 @@
+@media (max-width: 980px){
+    body {
+        background-image: url('./design/mathematics-g4de2f4246_1280\(2x\).jpg');
+        background-position: center 0%;
+        background-size: 150%;
+    }
+    
+    main .texto-selecao p{
+        font-size: 1.9em;
+    }
+}
