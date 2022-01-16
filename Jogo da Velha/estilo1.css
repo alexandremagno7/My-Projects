@@ -165,17 +165,25 @@ main .texto-selecao .itens-de-escolha{
 }
 
 .area-de-relatorios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     margin-top: 10px;
 
     color: var(--corSecundaria2);
     background-color: #00440080;
     padding: 15px;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .negrito{
     font-weight: 700;
+}
+
+.info{
+    margin-bottom: 8px;
 }
 
 .contorno{
@@ -195,5 +203,13 @@ main .texto-selecao .itens-de-escolha{
     background-color: #00440080;
     text-align: center;
 
-    font-size: 0.8em;
+    font-size: 0.75em;
+}
+
+.reiniciar-jogo{
+    border: var(--corSecundaria2) 2px solid;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 2px 10px;
+    border-radius: 10px;
 }

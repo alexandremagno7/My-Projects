@@ -16,6 +16,22 @@
     main .area-do-jogo{
         width: 80%;
     }
+
+    .area-de-relatorios{
+        font-size: 1.2em;
+    }
+
+    .info{
+        margin-bottom: 4px;
+    }    
+
+    .info span{
+        display: none;
+    }
+
+    .reiniciar-jogo{
+        font-size: 0.8em;
+    }
 }
 
 @media (max-width: 360px){
@@ -35,10 +51,18 @@
     .opcao{
         height: 90px;
         margin: 5px;
+        font-size: 5.5em;
     }
 
     .marcado{
         height: 90px;
         margin: 5px;
     }
+
+    .area-de-relatorios{
+        margin-top: 6px;
+        padding: 5px;
+        /* font-size: 1.5em; */
+    }
+
 }

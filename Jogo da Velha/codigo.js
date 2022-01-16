@@ -11,10 +11,26 @@ function vencedor() {
     },300);
 }
 
+function reiniciarJogo() {
+
+    const b = document.createElement('buttom');
+    b.innerText = '🔁 CLIQUE AQUI PARA REINICIAR';
+    b.title = 'Clique aqui para reiniciar';
+    b.classList.add('reiniciar-jogo');
+    b.onclick = function() {
+        location.reload();
+    }
+
+    const p = document.createElement('p');
+    p.appendChild(b);
+
+    relatorios.appendChild(p);
+}
+
 function detectorDeVencedor(conjunto) {
     let haVitorioso = false;
 
-    informador(starter);
+    informador(starter); //Aqui ele é chamado apenas 1x
 
     if (numeroJogada >=5){
         const acerto = (i, tipo) => conjunto[i].classList.contains(`tipo-${tipo}`);
@@ -27,12 +43,15 @@ function detectorDeVencedor(conjunto) {
                 conjunto[linha[1]].classList.add('vitoria');
                 conjunto[linha[2]].classList.add('vitoria');
 
-                vencedor();
-
-                conjunto.forEach(esp => esp.classList.add('marcado'));
-                haVitorioso = true;
-                info.title = 'O jogador do x venceu!';
-                info.innerHTML = 'JOGADOR ❌ VENCEU! 💪😁🙌';
+                if(!haVitorioso){ //Essa condicional evita dupla chamada de 'vencedor()' e 'reiniciarJogo()'
+                    vencedor();
+    
+                    conjunto.forEach(esp => esp.classList.add('marcado'));
+                    haVitorioso = true;
+                    info.title = 'O jogador do x venceu!';
+                    info.innerHTML = 'JOGADOR ❌ VENCEU! 💪<span>😁🙌</span>';
+                    reiniciarJogo();
+                }
 
             } else if(acerto(linha[0],'o') & acerto(linha[1],'o') & acerto(linha[2],'o')){
 
@@ -40,20 +59,26 @@ function detectorDeVencedor(conjunto) {
                 conjunto[linha[1]].classList.add('vitoria');
                 conjunto[linha[2]].classList.add('vitoria');
 
-                vencedor();
-
-                conjunto.forEach(esp => esp.classList.add('marcado'));
-                haVitorioso = true;
-                info.title = 'O jogador do círculo venceu!';
-                info.innerHTML = 'JOGADOR ⭕️ VENCEU! 💪😁🙌';
-
-            } else if (numeroJogada > 8){
-                if(!haVitorioso){
-                    vencedor();
-                    info.title = 'Ninguém ganhou porque deu velha.';
-                    info.innerHTML = 'Deu velha! 👵🤣';
+                if(!haVitorioso){ //Essa condicional evita dupla chamada de 'vencedor()' e 'reiniciarJogo()'    
+                    vencedor(); //Há dupla chamada em caso de vitória em mais de uma linha
+    
+                    conjunto.forEach(esp => esp.classList.add('marcado'));
+                    haVitorioso = true;
+                    info.title = 'O jogador do círculo venceu!';
+                    info.innerHTML = 'JOGADOR ⭕️ VENCEU! 💪<span>😁🙌</span>';
+                    reiniciarJogo();
                 }
+
             }
+        }
+    }
+    
+    if (numeroJogada > 8){
+        if(!haVitorioso){
+            vencedor();
+            info.title = 'Ninguém ganhou porque deu velha.';
+            info.innerHTML = 'Deu velha! 👵🤣';
+            reiniciarJogo();
         }
     }
 }
@@ -91,12 +116,14 @@ function insereEspacosParaMarcar() {
 
                     starter = !starter;
                     marcadorDeEspacos(espaco,'tipo-x','X');
+                    //informador(starter);
                 }
             } else {
                 if(!espaco.classList.contains('marcado')){
                     
                     starter = !starter;
                     marcadorDeEspacos(espaco,'tipo-o','O');
+                    //informador(starter);
                 }
             }
         };
@@ -109,6 +136,8 @@ function insereEspacosParaMarcar() {
 function opcaoSelecionada() {
     if(this.classList.contains('tipo-x')) starter = true;
     if(this.classList.contains('tipo-o')) starter = false;
+
+    informador(starter); //Analisar se é o melhor posicionamento para chamada
 
     textoSelecao.classList.add('desable');
     
@@ -140,4 +169,5 @@ Tecnologias usadas:
 - HTML;
 - CSS;
 - Javascript.
+
 `)
